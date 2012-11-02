@@ -1,4 +1,4 @@
-bash -x -c '
+bash -c '
 <%= "export http_proxy=\"#{knife_config[:bootstrap_proxy]}\"" if knife_config[:bootstrap_proxy] -%>
 
 if [ ! -f /usr/bin/chef-client ]; then
@@ -8,7 +8,7 @@ if [ ! -f /usr/bin/chef-client ]; then
   git clone git://github.com/sstephenson/ruby-build.git
   cd ruby-build
   /usr/src/ruby-build/install.sh
-  bash -x /usr/local/bin/ruby-build 1.9.3-p286 /usr
+  /usr/local/bin/ruby-build 1.9.3-p286 /usr
   echo setup ok
 fi
 
